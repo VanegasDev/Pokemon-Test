@@ -15,7 +15,7 @@ struct PokemonCardView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Spacer()
-                Text("#\(String(format: "%03d", id))")
+                Text("#ID")
                     .font(.headline.weight(.bold))
                     .foregroundStyle(Color(Constants.Colors.lightGray))
             }
@@ -53,7 +53,6 @@ struct PokemonCardView: View {
     ZStack {
         Color.black.opacity(0.9).ignoresSafeArea()
         PokemonCardView(
-            id: 304,
             name: "Aron",
             imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/304.png")
         )
