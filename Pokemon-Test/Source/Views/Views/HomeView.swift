@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    let pokemon: [PokemonItem]
+    @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
         ScrollView {
@@ -41,27 +41,12 @@ struct HomeView: View {
     }
     
     var gridView: some View {
-        PokemonGridView(pokemons: pokemon)
+        PokemonGridView(pokemons: viewModel.pokemon)
         
         
     }
 }
 
 #Preview {
-    HomeView(
-        pokemon: [
-            PokemonItem(id: 6, name: "Charizard",
-                        imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png")),
-            PokemonItem(id: 1, name: "Bulbasaur",
-                        imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")),
-            PokemonItem(id: 4, name: "Charmander",
-                        imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png")),
-            PokemonItem(id: 25, name: "Pikachu",
-                        imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png")),
-            PokemonItem(id: 132, name: "Ditto",
-                        imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png")),
-            PokemonItem(id: 7, name: "Squirtle",
-                        imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"))
-        ]
-    )
+    HomeView()
 }
