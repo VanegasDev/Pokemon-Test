@@ -20,7 +20,6 @@ struct PokemonGridView: View {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(pokemons) { pokemon in
                     PokemonCardView(
-                        id: pokemon.id,
                         name: pokemon.name,
                         imageURL: pokemon.imageURL
                     )
@@ -35,17 +34,17 @@ struct PokemonGridView: View {
 
 struct PokemonGridPreview: View {
     let samplePokemons: [PokemonItem] = [
-        PokemonItem(id: 6, name: "Charizard",
+        PokemonItem(name: "Charizard",
                 imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png")),
-        PokemonItem(id: 1, name: "Bulbasaur",
+        PokemonItem(name: "Bulbasaur",
                 imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")),
-        PokemonItem(id: 4, name: "Charmander",
+        PokemonItem(name: "Charmander",
                 imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png")),
-        PokemonItem(id: 25, name: "Pikachu",
+        PokemonItem(name: "Pikachu",
                 imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png")),
-        PokemonItem(id: 132, name: "Ditto",
+        PokemonItem(name: "Ditto",
                 imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png")),
-        PokemonItem(id: 7, name: "Squirtle",
+        PokemonItem(name: "Squirtle",
                 imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"))
     ]
 

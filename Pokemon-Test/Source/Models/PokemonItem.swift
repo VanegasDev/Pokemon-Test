@@ -11,5 +11,10 @@ struct PokemonItem: Codable, Identifiable {
     let id = UUID()
     let name: String
     let imageURL: URL?
+    
+    init(name: String, imageURL: URL?) {
+        self.name = name
+        self.imageURL = imageURL
+    }
 }
 

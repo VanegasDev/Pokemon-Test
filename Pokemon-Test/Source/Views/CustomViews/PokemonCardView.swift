@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PokemonCardView: View {
-    let id: Int
     let name: String
     let imageURL: URL?
 
