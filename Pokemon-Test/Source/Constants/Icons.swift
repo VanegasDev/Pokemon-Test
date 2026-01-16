@@ -6,10 +6,8 @@
 //
 
 extension Constants {
-    // I want static let for this icon names
-    // Electric, Fire, Grass, Height, Weight, Normal, Poison, Pokemon, Search, Water
-    
     enum Icons {
+        // Icon asset names (matching Assets.xcassets/Icons)
         static let electric = "Electric"
         static let fire = "Fire"
         static let grass = "Grass"

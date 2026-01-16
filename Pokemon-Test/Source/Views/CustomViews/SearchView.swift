@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var query: String = ""
+    @State var query: String = ""
 
     var onSearch: ((String) -> Void)? = nil
 
@@ -17,8 +17,7 @@ struct SearchView: View {
             TextField("Buscar", text: $query)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
-                .padding(.leading, 18)
-                .frame(height: 52)
+                .frame(height: 36)
 
             Button {
                 onSearch?(query)
@@ -26,19 +25,19 @@ struct SearchView: View {
                 Image(Constants.Icons.search)
                     .font(.system(size: 18, weight: .bold))
                     .foregroundStyle(Color.blue)
-                    .frame(width: 52, height: 52)
-                    .background(Color(red: 0.96, green: 0.78, blue: 0.19))
+                    .frame(width: 27, height: 27)
+                    .background(Color(Constants.Colors.lightYellow))
                     .clipShape(Circle())
             }
             .buttonStyle(.plain)
         }
+        .padding(.horizontal, 8)
         .background(
             RoundedRectangle(cornerRadius: 26, style: .continuous)
-                .stroke(Color.gray.opacity(0.3), lineWidth: 1)
+                .stroke(Color(Constants.Colors.lightGray))
         )
-        .frame(height: 52)
+        .frame(height: 36)
         .padding(22)
-        .background(Color.white)
     }
 }
 

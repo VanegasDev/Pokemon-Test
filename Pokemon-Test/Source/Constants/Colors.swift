@@ -16,7 +16,7 @@ extension Constants {
         static let lightPink = "LightPink"
         static let lightYellow = "LightYellow"
         static let pink = "Pink"
-        static let purple = "Purple"
+        static let gray = "Gray"
         static let white = "White"
         static let yellow = "Yellow"
     }
