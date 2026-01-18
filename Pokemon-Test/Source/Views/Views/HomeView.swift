@@ -18,6 +18,18 @@ struct HomeView: View {
             gridView
         }
         .onAppear(perform: viewModel.fetchPokemons)
+        .alert(
+            "Error",
+            isPresented: $viewModel.isShowingAlert
+        ) {
+            Button("Retry") {
+                viewModel.fetchPokemons()
+            }
+            
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text(viewModel.localizedError?.localizedDescription ?? "An unexpected error occurred.")
+        }
     }
     
     var header: some View {

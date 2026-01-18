@@ -10,6 +10,8 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     @Published var pokemon: [Pokemon] = []
+    @Published var isShowingAlert = false
+    @Published var localizedError: Error?
     
     // MARK: - Properties
     
@@ -28,9 +30,10 @@ class HomeViewModel: ObservableObject {
         pokemonService
             .fetchPokemonList()
             .receive(on: DispatchQueue.main)
-            .sink { completion in
+            .sink { [weak self] completion in
                 if case let .failure(error) = completion {
-                    // Handle Error
+                    self?.localizedError = error
+                    self?.isShowingAlert = true
                 }
             } receiveValue: { [weak self] resultList in
                 self?.pokemon = resultList.results
