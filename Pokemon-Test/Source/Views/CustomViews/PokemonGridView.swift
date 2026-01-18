@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PokemonGridView: View {
-    let pokemons: [PokemonItem]
+    let pokemons: [Pokemon]
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -20,6 +20,7 @@ struct PokemonGridView: View {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(pokemons) { pokemon in
                     PokemonCardView(
+                        id: pokemon.id,
                         name: pokemon.name,
                         imageURL: pokemon.imageURL
                     )
@@ -33,19 +34,11 @@ struct PokemonGridView: View {
 }
 
 struct PokemonGridPreview: View {
-    let samplePokemons: [PokemonItem] = [
-        PokemonItem(name: "Charizard",
-                imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png")),
-        PokemonItem(name: "Bulbasaur",
-                imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")),
-        PokemonItem(name: "Charmander",
-                imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png")),
-        PokemonItem(name: "Pikachu",
-                imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png")),
-        PokemonItem(name: "Ditto",
-                imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png")),
-        PokemonItem(name: "Squirtle",
-                imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"))
+    let samplePokemons: [Pokemon] = [
+        Pokemon(id: 1, name: "Bulbasaur", imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png")),
+        Pokemon(id: 2, name: "Ivysaur", imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png")),
+        Pokemon(id: 3, name: "Venusaur", imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png")),
+        Pokemon(id: 4, name: "Charmander", imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"))
     ]
 
     var body: some View {

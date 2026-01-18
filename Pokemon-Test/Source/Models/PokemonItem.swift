@@ -7,14 +7,22 @@
 
 import Foundation
 
-struct PokemonItem: Codable, Identifiable {
-    let id = UUID()
+// MARK: - API Model
+
+struct PokemonItem: Codable {
     let name: String
     let imageURL: URL?
     
-    init(name: String, imageURL: URL?) {
-        self.name = name
-        self.imageURL = imageURL
+    enum CodingKeys: String, CodingKey {
+        case name
+        case imageURL = "url"
     }
 }
 
+// MARK: - APP Model
+
+struct Pokemon: Identifiable {
+    let id: Int
+    let name: String
+    let imageURL: URL?
+}

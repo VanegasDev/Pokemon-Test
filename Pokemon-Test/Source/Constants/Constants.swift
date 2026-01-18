@@ -5,6 +5,10 @@
 //  Created by Mario Vanegas on 14/1/26.
 //
 
+import Foundation
+
 enum Constants {
-    // This will be the main object to hold all constants
+    static func imageURL(id: Int) -> URL? {
+        URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(id).png")
+    }
 }

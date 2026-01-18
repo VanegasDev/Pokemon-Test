@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PokemonCardView: View {
+    let id: Int
     let name: String
     let imageURL: URL?
 
@@ -15,7 +16,7 @@ struct PokemonCardView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Spacer()
-                Text("#ID")
+                Text("#\(id)")
                     .font(.headline.weight(.bold))
                     .foregroundStyle(Color(Constants.Colors.lightGray))
             }
@@ -53,6 +54,7 @@ struct PokemonCardView: View {
     ZStack {
         Color.black.opacity(0.9).ignoresSafeArea()
         PokemonCardView(
+            id: 1,
             name: "Aron",
             imageURL: URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/304.png")
         )

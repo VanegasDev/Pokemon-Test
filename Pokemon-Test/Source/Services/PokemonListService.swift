@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol PokemonListServiceType {
-    func fetchPokemonList() -> AnyPublisher<[PokemonItem], Error>
+    func fetchPokemonList() -> AnyPublisher<ResultList, Error>
 }
 
 struct PokemonListService: PokemonListServiceType {
@@ -19,7 +19,7 @@ struct PokemonListService: PokemonListServiceType {
         self.networkManager = networkManager
     }
     
-    func fetchPokemonList() -> AnyPublisher<[PokemonItem], Error> {
+    func fetchPokemonList() -> AnyPublisher<ResultList, Error> {
         networkManager.request(PokemonTarget.pokemonList)
     }
 }

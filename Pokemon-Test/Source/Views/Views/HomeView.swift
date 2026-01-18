@@ -17,6 +17,7 @@ struct HomeView: View {
             searchBar
             gridView
         }
+        .onAppear(perform: viewModel.fetchPokemons)
     }
     
     var header: some View {
@@ -42,8 +43,6 @@ struct HomeView: View {
     
     var gridView: some View {
         PokemonGridView(pokemons: viewModel.pokemon)
-        
-        
     }
 }
 
