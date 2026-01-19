@@ -13,6 +13,8 @@ class HomeViewModel: ObservableObject {
     @Published var isShowingAlert = false
     @Published var localizedError: Error?
     @Published var filterQuery: String = ""
+    @Published var selectedPokemon: Pokemon?
+    @Published var isShowingDetailView = false
     
     // MARK: - Properties
     
@@ -55,5 +57,10 @@ class HomeViewModel: ObservableObject {
                     }
             }
             .store(in: &cancellables)
+    }
+    
+    func showDetailView(for pokemon: Pokemon) {
+        selectedPokemon = pokemon
+        isShowingDetailView = true
     }
 }

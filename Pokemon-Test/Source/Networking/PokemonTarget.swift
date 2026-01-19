@@ -9,6 +9,7 @@ import Moya
 
 enum PokemonTarget {
     case pokemonList
+    case pokemonDetail(id: Int)
 }
 
 extension PokemonTarget: PokeTargetType {
@@ -16,19 +17,21 @@ extension PokemonTarget: PokeTargetType {
         switch self {
         case .pokemonList:
             return "pokemon"
+        case let .pokemonDetail(id):
+            return "/pokemon/\(id)"
         }
     }
     
     var requestMethod: PokeNetworkMethod {
         switch self {
-        case .pokemonList:
+        case .pokemonList, .pokemonDetail:
             return .get
         }
     }
     
     var task: Moya.Task {
         switch self {
-        case .pokemonList:
+        case .pokemonList, .pokemonDetail:
             return .requestPlain
         }
     }

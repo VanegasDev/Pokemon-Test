@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PokemonGridView: View {
     let pokemons: [Pokemon]
+    let onTap: ((Pokemon) -> Void)?
 
     private let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -24,6 +25,9 @@ struct PokemonGridView: View {
                         name: pokemon.name,
                         imageURL: pokemon.imageURL
                     )
+                    .onTapGesture {
+                        onTap?(pokemon)
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -42,7 +46,7 @@ struct PokemonGridPreview: View {
     ]
 
     var body: some View {
-        PokemonGridView(pokemons: samplePokemons)
+        PokemonGridView(pokemons: samplePokemons) { _ in }
     }
 }
 

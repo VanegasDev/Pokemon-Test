@@ -18,6 +18,16 @@ struct HomeView: View {
             gridView
         }
         .onAppear(perform: viewModel.fetchPokemons)
+        .fullScreenCover(isPresented: $viewModel.isShowingDetailView) {
+            if let selectedPokemon = viewModel.selectedPokemon {
+                PokemonDetailScreen(
+                    viewModel: PokemonDetailViewModel(
+                        name: selectedPokemon.name,
+                        id: selectedPokemon.id
+                    )
+                )
+            }
+        }
         .alert(
             "Error",
             isPresented: $viewModel.isShowingAlert
@@ -54,7 +64,9 @@ struct HomeView: View {
     }
     
     var gridView: some View {
-        PokemonGridView(pokemons: viewModel.filteredPokemon)
+        PokemonGridView(pokemons: viewModel.filteredPokemon) { pokemon in
+            viewModel.showDetailView(for: pokemon)
+        }
     }
 }
 
