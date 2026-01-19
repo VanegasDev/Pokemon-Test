@@ -12,11 +12,20 @@ class HomeViewModel: ObservableObject {
     @Published var pokemon: [Pokemon] = []
     @Published var isShowingAlert = false
     @Published var localizedError: Error?
+    @Published var filterQuery: String = ""
     
     // MARK: - Properties
     
     private let pokemonService: PokemonListServiceType
     private var cancellables: Set<AnyCancellable> = []
+    
+    var filteredPokemon: [Pokemon] {
+        guard !filterQuery.isEmpty else {
+            return pokemon
+        }
+        
+        return pokemon.filter { $0.name.lowercased().contains(filterQuery.lowercased()) }
+    }
     
     // MARK: - Initializers
     

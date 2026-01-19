@@ -48,13 +48,13 @@ struct HomeView: View {
     }
     
     var searchBar: some View {
-        SearchView(query: "") { _ in
-            
+        SearchView(query: viewModel.filterQuery) {
+            viewModel.filterQuery = $0
         }
     }
     
     var gridView: some View {
-        PokemonGridView(pokemons: viewModel.pokemon)
+        PokemonGridView(pokemons: viewModel.filteredPokemon)
     }
 }
 
